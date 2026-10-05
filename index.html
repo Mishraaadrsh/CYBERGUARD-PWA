@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberGuard - Community Data Protection</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2563eb" />
+</head>
+<body>
+  <header>
+    <div class="logo-area" onclick="switchPage('page1')" style="cursor: pointer;">
+      <h1>🛡️ CyberGuard PWA</h1>
+      <span class="badge">Community Defense</span>
+    </div>
+    <nav>
+      <button id="nav-page1" class="active" onclick="switchPage('page1')">🏠 Home</button>
+      <button id="nav-page2" onclick="switchPage('page2')">⚙️ Security Tools</button>
+      <button id="nav-page3" onclick="switchPage('page3')">📖 Safety Guides</button>
+      <button id="nav-page4" onclick="switchPage('page4')">🚨 Help & Quiz</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- PAGE 1: COMMUNITY FINDINGS & HYGIENE OVERVIEW -->
+    <section id="page1" class="page active">
+      <div class="card hero-banner">
+        <h2>Community Engagement Project (CEP)</h2>
+        <p>
+          Initiated by the Department of Information Technology & Mathematics, 
+          <strong>Western College of Commerce and Business Management (Autonomous), Sanpada</strong>. 
+          This web application aims to bridge the digital awareness gap and protect urban smartphone and computer users from credential compromise, financial fraud, and privacy loss.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Field Survey Empirical Findings</h2>
+        <p>Real vulnerabilities discovered during the community field assessment across Sanpada and Juinagar transit areas:</p>
+        <div class="stat-grid">
+          <div class="stat-box">
+            <div class="number text-danger">63.3%</div>
+            <div class="label">Reuse Passwords Across Multiple Apps</div>
+          </div>
+          <div class="stat-box">
+            <div class="number text-warning">43.3%</div>
+            <div class="label">Only Change Passwords After a Scare</div>
+          </div>
+          <div class="stat-box">
+            <div class="number text-danger">50.0%</div>
+            <div class="label">Click Links in Urgent/Phishing SMS</div>
+          </div>
+          <div class="stat-box">
+            <div class="number text-info">36.7%</div>
+            <div class="label">Unaware of Data Breach Portals</div>
+          </div>
+          <div class="stat-box">
+            <div class="number text-warning">40.0%</div>
+            <div class="label">Store Passwords in Plain Phone Notes</div>
+          </div>
+          <div class="stat-box">
+            <div class="number text-success">83.3%</div>
+            <div class="label">Eager to Adopt Safety Guidelines</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Core Principles of Personal Data Protection</h2>
+        <div class="principles-grid">
+          <div class="principle-item">
+            <div class="p-icon">🔑</div>
+            <h4>Passphrase > Password</h4>
+            <p>Combine 4 random words (e.g., <code>mango-galaxy-river-77</code>). Length beats complexity against brute-force attacks.</p>
+          </div>
+          <div class="principle-item">
+            <div class="p-icon">🚫</div>
+            <h4>Zero Cleartext Storage</h4>
+            <p>Never store PINs, passwords, or OTP screenshots in WhatsApp, gallery, or basic mobile notes apps.</p>
+          </div>
+          <div class="principle-item">
+            <div class="p-icon">📲</div>
+            <h4>App-Based TOTP MFA</h4>
+            <p>Always upgrade from SMS OTPs to authenticator apps like Google or Microsoft Authenticator to prevent SIM swap attacks.</p>
+          </div>
+          <div class="principle-item">
+            <div class="p-icon">🔒</div>
+            <h4>Full-Disk Encryption</h4>
+            <p>Encrypt old laptops and phones before performing a factory reset when reselling or donating hardware.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2: INTERACTIVE HYGIENE TOOLS & AUDIT CHECKLIST -->
+    <section id="page2" class="page">
+      <div class="card">
+        <h2>Interactive Password Strength Analyzer</h2>
+        <p>Test the resilience of your password in real-time. (Evaluated locally in your browser - zero data leaves your device):</p>
+        <input 
+          type="text" 
+          id="pwd-input" 
+          placeholder="Type a password to test (e.g., Tiger#Coffee2026!)" 
+          autocomplete="off" 
+        />
+        <div class="meter-bar">
+          <div id="meter-fill" class="meter-fill"></div>
+        </div>
+        <div id="pwd-feedback" class="feedback-text">Enter a password to evaluate entropy and crack resistance.</div>
+      </div>
+
+      <div class="card">
+        <h2>Strong Password & Passphrase Generator</h2>
+        <p>Generate high-entropy, unpredictable credentials instantly for your banking and primary email:</p>
+        <div class="gen-box">
+          <div class="gen-output" id="gen-result">Click Generate Below</div>
+          <div class="gen-controls">
+            <button class="btn btn-primary" onclick="generateNewPassword()">⚡ Generate Secure Password</button>
+            <button class="btn btn-secondary" onclick="copyPassword()">📋 Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Personal Cyber Health Checklist</h2>
+        <p>Audit your daily personal devices against this 6-point foundational security checklist:</p>
+        <ul class="checklist">
+          <li>
+            <input type="checkbox" id="chk1" onchange="updateChecklistProgress()" />
+            <label for="chk1">Enabled 2-Step Verification on primary Google/Apple ID</label>
+          </li>
+          <li>
+            <input type="checkbox" id="chk2" onchange="updateChecklistProgress()" />
+            <label for="chk2">Installed a zero-knowledge Password Manager (Bitwarden / KeePass / 1Password)</label>
+          </li>
+          <li>
+            <input type="checkbox" id="chk3" onchange="updateChecklistProgress()" />
+            <label for="chk3">Audited smartphone permissions (revoked Location/Mic from unused apps)</label>
+          </li>
+          <li>
+            <input type="checkbox" id="chk4" onchange="updateChecklistProgress()" />
+            <label for="chk4">Checked personal email on breach lookup service (Have I Been Pwned)</label>
+          </li>
+          <li>
+            <input type="checkbox" id="chk5" onchange="updateChecklistProgress()" />
+            <label for="chk5">Secured lock screen notifications (hide sensitive financial SMS content)</label>
+          </li>
+          <li>
+            <input type="checkbox" id="chk6" onchange="updateChecklistProgress()" />
+            <label for="chk6">Configured full storage encryption / multipass wipe before discarding old gear</label>
+          </li>
+        </ul>
+        <div class="progress-bar-container">
+          <div class="progress-text">Checklist Completion: <span id="chk-progress">0%</span></div>
+          <div class="progress-track"><div id="chk-bar" class="progress-fill"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3: ACTIONABLE SAFETY GUIDES -->
+    <section id="page3" class="page">
+      <div class="card">
+        <h2>Actionable Cyber Safety Playbooks</h2>
+        <p>Step-by-step practical countermeasures tailored for everyday digital interactions:</p>
+      </div>
+
+      <div class="guide-grid">
+        <div class="card guide-card">
+          <h3>📶 1. Public Wi-Fi Security Protocol</h3>
+          <p>Unsecured Wi-Fi at railway stations, cafes, and airports exposes data packets to Man-in-the-Middle (MitM) snooping.</p>
+          <ul class="guide-steps">
+            <li><strong>Turn Off Auto-Connect:</strong> Prevent your phone from silently connecting to open SSIDs.</li>
+            <li><strong>No Financial Transactions:</strong> Never access UPI apps or Net Banking over public Wi-Fi.</li>
+            <li><strong>Use Mobile Data or VPN:</strong> Switch to your 4G/5G mobile hotspot for critical tasks.</li>
+            <li><strong>Verify HTTPS:</strong> Never enter credentials if the URL bar says "Not Secure" (HTTP).</li>
+          </ul>
+        </div>
+
+        <div class="card guide-card">
+          <h3>📱 2. Smartphone Permission Lockdown</h3>
+          <p>Malicious apps routinely abuse accessibility, contact, and SMS permissions to steal OTPs.</p>
+          <ul class="guide-steps">
+            <li><strong>SMS & Notification Access:</strong> Allow SMS permissions ONLY for default dialer and messaging apps.</li>
+            <li><strong>Microphone & Camera:</strong> Set permissions to <em>"Allow only while using the app"</em>.</li>
+            <li><strong>Auto-Revoke Permissions:</strong> Enable automatic permission revocation for apps untouched in 30 days.</li>
+            <li><strong>Disable Unknown Sources:</strong> Never install APK files received on WhatsApp or Telegram.</li>
+          </ul>
+        </div>
+
+        <div class="card guide-card">
+          <h3>🎣 3. Identifying Phishing & Urgency Scams</h3>
+          <p>Attackers manufacture artificial urgency ("Account will be blocked in 2 hours") to trigger quick panic.</p>
+          <ul class="guide-steps">
+            <li><strong>Inspect the Domain:</strong> Look for typos (e.g., <code>sbi-verify.com</code> instead of <code>sbi.co.in</code>).</li>
+            <li><strong>Never Click SMS Links:</strong> Banks and service providers never send links to update KYC.</li>
+            <li><strong>Check Truecaller / Spam:</strong> Verify unknown numbers before engaging in conversations.</li>
+            <li><strong>Independently Call Support:</strong> Open the official app or website directly to verify issues.</li>
+          </ul>
+        </div>
+
+        <div class="card guide-card">
+          <h3>💻 4. Device Sanitization Before Reselling</h3>
+          <p>Simple "Delete" or "Format" leaves raw hard drive and flash storage data recoverable by standard tools.</p>
+          <ul class="guide-steps">
+            <li><strong>Android/iOS:</strong> Ensure device encryption is ON, sign out of Google/iCloud, then perform Factory Reset.</li>
+            <li><strong>Windows PC:</strong> Turn on BitLocker to encrypt drive, then format and reinstall OS.</li>
+            <li><strong>External Hard Drives:</strong> Use secure wipe tools (e.g., DBAN or Eraser with 3-pass overwrite).</li>
+            <li><strong>Remove Physical SIM & SD Cards:</strong> Always check micro-SD slots before handing over devices.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4: EMERGENCY INCIDENT RESPONSE & QUIZ -->
+    <section id="page4" class="page">
+      <div class="card emergency-banner">
+        <h2>🚨 Immediate Cyber Fraud Incident Response</h2>
+        <p>If you or someone in your community has fallen victim to digital theft or credential compromise, act immediately:</p>
+        <div class="helpline-box">
+          <div class="hl-item">
+            <span class="hl-title">National Cyber Crime Helpline:</span>
+            <span class="hl-number">📞 Dial 1930 (Toll-Free 24x7)</span>
+          </div>
+          <div class="hl-item">
+            <span class="hl-title">National Reporting Portal:</span>
+            <a href="https://cybercrime.gov.in" target="_blank" class="hl-link">🌐 cybercrime.gov.in</a>
+          </div>
+        </div>
+        <div class="golden-hour">
+          <strong>⚠️ The Golden Hour Rule:</strong> Reporting financial cyber fraud within <strong>2 hours</strong> allows bank nodal officers to freeze recipient transaction trails before funds are cashed out.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Quick Emergency Freeze Checklist</h2>
+        <div class="freeze-steps">
+          <div class="step-num">1</div>
+          <div class="step-desc"><strong>Freeze Bank Accounts & UPI:</strong> Call your bank's emergency hotline to lock debit cards and disable UPI services instantly.</div>
+        </div>
+        <div class="freeze-steps">
+          <div class="step-num">2</div>
+          <div class="step-desc"><strong>Revoke Active Sessions:</strong> Open Google/Apple Account settings and select "Sign out of all other web sessions".</div>
+        </div>
+        <div class="freeze-steps">
+          <div class="step-num">3</div>
+          <div class="step-desc"><strong>Block SIM Card:</strong> If you suspect a SIM swap attempt, contact your telecom provider immediately to suspend the SIM.</div>
+        </div>
+        <div class="freeze-steps">
+          <div class="step-num">4</div>
+          <div class="step-desc"><strong>Preserve Evidence:</strong> Take screenshots of suspicious transaction IDs, SMS messages, phone numbers, and phishing URLs for police reporting.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Interactive Cyber Safety Quiz</h2>
+        <p>Test your cybersecurity awareness with this 3-question quick quiz:</p>
+        
+        <div class="quiz-container">
+          <div class="quiz-question" id="q1">
+            <p><strong>Q1: You receive an SMS: "Your electricity will be disconnected tonight. Click here to pay." What should you do?</strong></p>
+            <div class="quiz-options">
+              <button onclick="checkQuiz(1, false, this)">A) Click the link immediately to prevent disconnection</button>
+              <button onclick="checkQuiz(1, true, this)">B) Ignore/delete the SMS and check the official electricity board app/portal</button>
+              <button onclick="checkQuiz(1, false, this)">C) Reply with your customer account ID</button>
+            </div>
+            <div class="quiz-ans" id="ans1"></div>
+          </div>
+
+          <div class="quiz-question" id="q2">
+            <p><strong>Q2: Why is using the same password across multiple websites risky?</strong></p>
+            <div class="quiz-options">
+              <button onclick="checkQuiz(2, false, this)">A) It takes longer to log in</button>
+              <button onclick="checkQuiz(2, true, this)">B) If one low-security website is hacked, attackers can unlock all your accounts</button>
+              <button onclick="checkQuiz(2, false, this)">C) Websites automatically detect duplicates and delete your profile</button>
+            </div>
+            <div class="quiz-ans" id="ans2"></div>
+          </div>
+
+          <div class="quiz-question" id="q3">
+            <p><strong>Q3: Before selling an old phone, what is the best way to secure your data?</strong></p>
+            <div class="quiz-options">
+              <button onclick="checkQuiz(3, false, this)">A) Just delete all photos and videos manually</button>
+              <button onclick="checkQuiz(3, false, this)">B) Clear your browser search history and remove apps</button>
+              <button onclick="checkQuiz(3, true, this)">C) Sign out of cloud accounts, verify device encryption, and run a full factory reset</button>
+            </div>
+            <div class="quiz-ans" id="ans3"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Western College of Commerce and Business Management (Autonomous) • Sanpada, Navi Mumbai • CEP 2026–2027
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
